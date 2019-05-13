@@ -18,8 +18,11 @@ var p = new Pagination({
 
 #### Parameters (required)
 **element** is the DOM element ID of where the pagination menu is going to be place below of.
-**data** is the collection array to be paginated
-**pageSize** number of records to show per pagination page
+
+**data** is the collection array to be paginated.
+
+**pageSize** number of records to show per pagination page.
+
 **template** is a callback function exposing the current pagination page data.
 
 #### Parameters (optional)
