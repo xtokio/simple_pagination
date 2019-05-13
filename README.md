@@ -61,7 +61,7 @@ var p = new Pagination({
 ```
 
 #### Update the collection array on the fly
-The **data** parameter can be updated after the class object creation.
+The **data** parameter can be updated after the class object creation via the setData function this will update and refresh the pagination menu.
 ```javascript
 let array_data = [];
 for(var i = 1; i<5001; i++)
@@ -81,9 +81,7 @@ let array_data_update = [];
     array_data_update.push({"index": i, "name":`Name: ${i}`, "lastname":`Last Name: ${i}`});
 
 // Update data collection
-p.data = array_data_update;
-// Update navigation menu with new data
-p.refresh();
+p.setData(array_data_update);
 
 ```
 
