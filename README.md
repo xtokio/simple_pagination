@@ -7,13 +7,13 @@ Create javascript object based on the Pagination class and pass the require para
 
 ```javascript
 var p = new Pagination({
-    element:"my_table",
-    data:array_data,
-    pageSize:10,
-    template: function(data){
-      // Access to current page pagination data
-    }
-  });      
+  element:"my_table",
+  data:array_data,
+  pageSize:10,
+  template: function(data){
+    // Access to current page pagination data
+  }
+});
 ```
 
 #### Parameters (required)
@@ -58,6 +58,33 @@ var p = new Pagination({
         }
     }
   });      
+```
+
+#### Update the collection array on the fly
+The **data** parameter can be updated after the class object creation.
+```javascript
+let array_data = [];
+for(var i = 1; i<5001; i++)
+  array_data.push({"index": i, "name":`Name: ${i}`, "lastname":`Last Name: ${i}`});
+
+var p = new Pagination({
+  element:"my_table",
+  data:array_data,
+  pageSize:10,
+  template: function(data){
+    // Access to current page pagination data
+  }
+});
+
+let array_data_update = [];
+  for(var i = 1; i<101; i++)
+    array_data_update.push({"index": i, "name":`Name: ${i}`, "lastname":`Last Name: ${i}`});
+
+// Update data collection
+p.data = array_data_update;
+// Update navigation menu with new data
+p.refresh();
+
 ```
 
 #### HTML example page
