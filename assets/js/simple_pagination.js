@@ -104,7 +104,7 @@ class Pagination
     <a id="pagination_previous" href="#" >&laquo; ${language.navigation.previous}</a>      
     <a id="pagination_next" href="#" >${language.navigation.next} &raquo;</a>      
     <a id="pagination_last" href="#" >${language.navigation.last}</a>
-    <span class="pagination_show_entries">${language.show.show} <input class="pagination_page_input" type="number" value="10"/> ${language.show.entries}</span>
+    <span class="pagination_show_entries">${language.show.show} <input class="pagination_page_input" type="number" value="${this.numberPerPage}"/> ${language.show.entries}</span>
     `;    
     document.querySelector(`#${element}`).after(navigation_menu);
 
