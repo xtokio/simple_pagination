@@ -84,6 +84,10 @@ class Pagination
           next: "Next",
           last: "Last"
         },
+        go:
+        {
+          goto: "Go to page"
+        },
         show:
         {
           show: "Show",
@@ -104,7 +108,8 @@ class Pagination
     <a id="pagination_previous" href="#" >&laquo; ${language.navigation.previous}</a>      
     <a id="pagination_next" href="#" >${language.navigation.next} &raquo;</a>      
     <a id="pagination_last" href="#" >${language.navigation.last}</a>
-    <span class="pagination_show_entries">${language.show.show} <input class="pagination_page_input" type="number" value="${this.numberPerPage}"/> ${language.show.entries}</span>
+    <span class="pagination_show_entries pagination_go_to">${language.go.goto} <input id="pagination_page_input_go_to" class="pagination_page_input" type="number" value="1"/> </span>
+    <span class="pagination_show_entries">${language.show.show} <input id="pagination_page_input_entries" class="pagination_page_input" type="number" value="${this.numberPerPage}"/> ${language.show.entries}</span>
     `;    
     document.querySelector(`#${element}`).after(navigation_menu);
 
@@ -158,7 +163,7 @@ class Pagination
   pageInput() 
   {
     var self = this;
-    document.querySelector(".pagination_page_input").addEventListener("change",function(){
+    document.querySelector("#pagination_page_input_entries").addEventListener("change",function(){
       self.numberPerPage = Number(this.value);
       self.numberOfPages = self.getNumberOfPages();
       self.currentPage = 1;
@@ -166,6 +171,24 @@ class Pagination
       document.querySelector("#pagination_first").classList.add("active");
 
       self.filterData();
+    });
+  }
+
+  pageGoTo()
+  {
+    var self = this;
+    document.querySelector("#pagination_page_input_go_to").addEventListener("change",function(){
+      self.numberOfPages = self.getNumberOfPages();
+      if(Number(this.value) > 0 && Number(this.value) <= Number(self.numberOfPages))
+      {
+        self.currentPage = Number(this.value);
+        self.removeActive();
+        document.querySelector("#pagination_first").classList.add("active");
+
+        self.loadList();
+      }
+      else
+        alert("Page number: "+Number(this.value)+" does not exist.");
     });
   }
 
