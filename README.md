@@ -51,6 +51,10 @@ var p = new Pagination({
           next: "Siguiente",
           last: "Ultimo"
         },
+        go:
+        {
+          goto: "Ir a pagina"
+        },
         show:
         {
           show: "Mostrar",
@@ -139,6 +143,10 @@ p.setData(array_data_update);
             previous: "Anterior",
             next: "Siguiente",
             last: "Ultimo"
+          },
+          go:
+          {
+            goto: "Ir a pagina"
           },
           show:
           {
