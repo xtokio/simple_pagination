@@ -2,6 +2,10 @@
 
 A Javascript **class** to provide simple pagination to an array collection with a custom template callback function to render the current pagination page without the need of any external libraries.
 
+##### Screenshots
+
+![Simple Pagination 01](screen_shot_pagination.png)
+
 ##### Usage
 Create javascript object based on the Pagination class and pass the require parameters.
 
