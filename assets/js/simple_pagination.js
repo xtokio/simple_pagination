@@ -115,6 +115,7 @@ class Pagination
 
     // Add event listeners to navigation menu
     this.pageNavigationClick();
+    this.pageGoTo();
     this.pageInput();
   }
 
@@ -185,7 +186,7 @@ class Pagination
         self.removeActive();
         document.querySelector("#pagination_first").classList.add("active");
 
-        self.loadList();
+        self.filterData();
       }
       else
         alert("Page number: "+Number(this.value)+" does not exist.");
