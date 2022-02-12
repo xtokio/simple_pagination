@@ -9,9 +9,11 @@
   width: 100px;
   color: black;
   float: left;
+  margin: 0 1px;
   padding: 8px 10px;
   text-decoration: none;
   border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .pagination a.active {
